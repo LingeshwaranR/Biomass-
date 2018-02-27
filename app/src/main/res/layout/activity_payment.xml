@@ -36,6 +36,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/black_overlay"
+                android:textColor="@color/black"
                 android:text="10" />
         </LinearLayout>
 
@@ -58,6 +60,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColorHint="@color/black_overlay"
+                android:textColor="@color/black"
                 android:text="Number" />
 
         </LinearLayout>
@@ -80,6 +84,8 @@
                 android:id="@+id/editTextMerchantKey"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/black_overlay"
+                android:textColor="@color/black"
                 android:layout_weight="1"
                 android:text="gtKFFx" />
         </LinearLayout>
@@ -104,6 +110,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text"
+                android:textColorHint="@color/black_overlay"
+                android:textColor="@color/black"
                 android:text="xyz@gmail.com" />
         </LinearLayout>
 

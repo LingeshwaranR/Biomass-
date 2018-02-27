@@ -74,6 +74,33 @@
 
             </android.support.design.widget.TextInputLayout>
 
+
+
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/radio">
+
+                    <RadioButton
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:text="Farmer"
+                        android:id="@+id/farmer"
+                        android:layout_marginLeft="30dp"/>
+
+                    <RadioButton
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:text="Buyer"
+                        android:id="@+id/buyer"/>
+
+                </RadioGroup>
+
+
+
+
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"

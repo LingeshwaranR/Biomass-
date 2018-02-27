@@ -12,6 +12,8 @@ package com.example.useri.myapplication4;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ProgressBar;
+        import android.widget.RadioButton;
+        import android.widget.RadioGroup;
         import android.widget.TextView;
         import android.widget.Toast;
         import android.app.ProgressDialog;
@@ -26,6 +28,9 @@ package com.example.useri.myapplication4;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn;
+    private RadioButton farm;
+    private RadioButton buy;
+    private RadioGroup radioGroup;
     private FirebaseAuth auth;
     private EditText inputEmail, inputPassword;
     private ProgressBar progressBar;
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn = (Button) findViewById(R.id.button);
         btn1=(Button)findViewById(R.id.button1);
+        radioGroup=findViewById(R.id.radio);
 
 
         //Get Firebase auth instance
@@ -92,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                farm=findViewById(selectedId);
+
 
 
 
@@ -103,9 +112,10 @@ public class MainActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
+                                Toast.makeText(MainActivity.this,
+                                        farm.getText(), Toast.LENGTH_SHORT).show();
 
-
-                                if (!task.isSuccessful()) {
+                                if (!task.isSuccessful()  ) {
                                     // there was an error
                                     if (password.length() < 6) {
                                                 progressDialog.dismiss();
@@ -115,10 +125,19 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.makeText(MainActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
+                                    if (farm.getText().equals("Farmer")){
+
                                     progressDialog.dismiss();
                                     Intent intent = new Intent(MainActivity.this, Main3Activity.class);
                                     startActivity(intent);
                                     finish();
+                                    }
+                                    else{
+                                        progressDialog.dismiss();
+                                        Intent intent = new Intent(MainActivity.this, Main5Activity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 }
                             }
                         });
