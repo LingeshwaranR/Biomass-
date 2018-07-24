@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/crop91"
+    android:background="@drawable/moon"
     tools:context="com.example.useri.myapplication4.Main2Activity">
 
-
-    <ImageView
-        android:layout_width="191dp"
-        android:layout_height="120dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FARM2HOME"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:fontFamily="comic-sans"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="0dp"
-        android:padding="4dp"
-        android:src="@drawable/farm1" />
+        android:textSize="40sp"/>
+
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -25,7 +27,7 @@
     android:paddingRight="16dp"
     android:paddingTop="0dp"
     android:text="Enter Your Details "
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     android:textSize="24sp"
     />
     <LinearLayout

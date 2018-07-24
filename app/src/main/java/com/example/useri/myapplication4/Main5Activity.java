@@ -42,7 +42,7 @@ public class Main5Activity extends AppCompatActivity {
 
         android.support.v4.app.FragmentManager fragmetManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmetManager.beginTransaction();
-        transaction.replace(R.id.content1,new customerprofFragment()).commit();
+        transaction.replace(R.id.content1,new custshopfrag()).commit();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigatuon1);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

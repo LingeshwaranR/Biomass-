@@ -5,21 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.useri.myapplication4.Main7Activity"
-    android:background="#fff"
+    android:background="@drawable/moon"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="258dp"
-        android:layout_height="98dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FARM2HOME"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:fontFamily="comic-sans"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/farm1" />
+        android:textSize="40sp"/>
+
 
     <TextView
         android:layout_width="303dp"
         android:layout_height="41dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:text="PAYMENT METHOD"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="20sp" />
 
     <ImageView

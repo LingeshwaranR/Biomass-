@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search Here"
-        android:background="#FEAF59"
+        android:background="#9e0000"
         android:theme="@style/SearchViewTheme"/>
    <TextView
        android:layout_width="match_parent"

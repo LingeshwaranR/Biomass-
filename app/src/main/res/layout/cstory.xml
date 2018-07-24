@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
 
-                android:text="Price :"/>
+                android:text="Price(per kg) :"/>
 
 
             <TextView

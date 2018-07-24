@@ -3,6 +3,19 @@
     <string name="action_settings">Settings</string>
     <string name="email">Email</string>
 
+
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_fingerprint">One-touch Sign In</string>
+    <string name="desc_fingerprint">Please place your fingertip on the scanner to verify your identity</string>
+    <string name="note">(Fingerprint sign in makes your app login much faster. Your device should have at least one fingerprint registered in device settings)</string>
+    <string name="title_activity_home">Fingerprint</string>
+    <string name="activity_home_desc">You have successfully logged in with fingerprint authentication</string>
+    <string name="activity_home_note">Close and re-open the app to see the fingerprint auth screen again</string>
+
+
+
+
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <!-- Strings related to Main -->
@@ -231,5 +244,9 @@
     <string name="your_item_will_be_displayed_here">item</string>
     <string name="price">Your Item will be displayed here</string>
     <string name="title_activity_main5">Main5Activity</string>
+
+
+
+
 
 </resources>
