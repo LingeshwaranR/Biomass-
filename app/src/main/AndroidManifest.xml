@@ -11,8 +11,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Farm2Home"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
@@ -38,11 +38,8 @@
             android:label="@string/title_activity_main5" />
         <activity android:name=".Main6Activity" />
         <activity android:name=".Main7Activity" />
-        <activity android:name=".custlogin" />
-        <activity android:name=".custsign" />
-        <activity android:name=".futurepredict" />
-        <activity android:name=".payment" />
-        <activity android:name=".paylast"></activity>
+        <activity android:name=".BlockLogin" />
+        <activity android:name=".futurepredict"></activity>
     </application>
 
 </manifest>

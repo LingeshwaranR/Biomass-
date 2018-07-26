@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     private RadioButton farm;
     private RadioButton buy;
-    private RadioGroup radioGroup;
     private FirebaseAuth auth;
     private EditText inputEmail, inputPassword;
     private ProgressBar progressBar;
@@ -92,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         btn = (Button) findViewById(R.id.button);
         btn1=(Button)findViewById(R.id.button1);
-        radioGroup=findViewById(R.id.radio);
         KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
         FingerprintManager fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
 
@@ -136,13 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                farm=findViewById(selectedId);
 
-
-
-
-                //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -150,33 +142,22 @@ public class MainActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
-                                Toast.makeText(MainActivity.this,
-                                        farm.getText(), Toast.LENGTH_SHORT).show();
 
-                                if (!task.isSuccessful()  ) {
+
+                                if (!task.isSuccessful()) {
                                     // there was an error
                                     if (password.length() < 6) {
-                                                progressDialog.dismiss();
+                                        progressDialog.dismiss();
                                         inputPassword.setError(getString(R.string.minimum_password));
                                     } else {
                                         progressDialog.dismiss();
                                         Toast.makeText(MainActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    if (farm.getText().equals("Farmer")){
-
                                     progressDialog.dismiss();
                                     Intent intent = new Intent(MainActivity.this, Main3Activity.class);
                                     startActivity(intent);
                                     finish();
-                                    }
-                                    else{
-
-                                        progressDialog.dismiss();
-                                        Intent intent = new Intent(MainActivity.this, Main5Activity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
                                 }
                             }
                         });
@@ -230,6 +211,8 @@ public class MainActivity extends AppCompatActivity {
                             FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
                             FingerprintHandler helper = new FingerprintHandler(this);
                             helper.startAuth(fingerprintManager, cryptoObject);
+
+
                         }
                     }
                 }
@@ -289,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
             SecretKey key = (SecretKey) keyStore.getKey(KEY_NAME,
                     null);
             cipher.init(Cipher.ENCRYPT_MODE, key);
+
             return true;
         } catch (KeyPermanentlyInvalidatedException e) {
             return false;

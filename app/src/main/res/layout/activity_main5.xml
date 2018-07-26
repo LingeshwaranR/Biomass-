@@ -6,29 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="#fff"
     tools:context="com.example.useri.myapplication4.Main3Activity">
 
+    <SearchView
+        android:id="@+id/SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here"
+        android:background="#1a8cff"
+        android:theme="@style/SearchViewTheme"/>
 
     <FrameLayout
-        android:id="@+id/content1"
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="585dp">
+        android:layout_height="625dp">
 
 
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigatuon1"
+        android:id="@+id/navigation1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:background="?android:attr/windowBackground"
-        android:backgroundTint="#f7f7f7"
-        app:itemIconTint="@drawable/botton_nav_colors"
-        app:itemTextColor="@drawable/botton_nav_colors"
+        android:backgroundTint="#fff"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

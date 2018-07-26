@@ -19,7 +19,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -50,8 +49,6 @@ public class homefragment extends Fragment {
     private Button submit;
     private Uri image1=null;
     private StorageReference storage;
-
-
 
     private DatabaseReference database;
 
@@ -134,9 +131,6 @@ public class homefragment extends Fragment {
 
 
                 startPosting();
-                name.setText("");
-                price.setText("");
-                image.setBackgroundResource(R.drawable.add_btn);
 
             }
         });
@@ -150,10 +144,7 @@ public class homefragment extends Fragment {
         final String item=name.getText().toString().trim();
         final String cost=price.getText().toString().trim();
 
-
         if(!TextUtils.isEmpty(item) && !TextUtils.isEmpty(cost) && image1!=null) {
-            String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
-
             Toast.makeText(getActivity().getApplication(),"Succesfully posted", Toast.LENGTH_LONG).show();
             StorageReference filepath=storage.child("Posts").child(image1.getLastPathSegment());
 
@@ -167,8 +158,6 @@ public class homefragment extends Fragment {
                     post.child("item").setValue(item);
                     post.child("price").setValue(cost);
                     post.child("image").setValue(downloadurl.toString());
-                    post.child("fid").setValue(user_id);
-
 
 
                 }

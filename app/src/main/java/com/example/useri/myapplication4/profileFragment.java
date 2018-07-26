@@ -141,22 +141,22 @@ public class profileFragment extends Fragment {
         TextView mnumber=(TextView)view.findViewById(R.id.num);
         TextView crop=(TextView)view.findViewById(R.id.item);
 
-         image=(ImageButton)view.findViewById(R.id.img);
-         set=view.findViewById(R.id.set1);
-         String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
-         storageimage= FirebaseStorage.getInstance().getReference().child("Dp");
-         databaseusers= FirebaseDatabase.getInstance().getReference().child("Farmers");
+        image=(ImageButton)view.findViewById(R.id.img);
+        set=view.findViewById(R.id.set1);
+        String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
+        storageimage= FirebaseStorage.getInstance().getReference().child("Dp");
+        databaseusers= FirebaseDatabase.getInstance().getReference().child("Farmers");
 
 
         auth=FirebaseAuth.getInstance();
 
-future.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent in = new Intent(getActivity().getApplication(), futurepredict.class);
-        startActivity(in);
-    }
-});
+        future.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getActivity().getApplication(), futurepredict.class);
+                startActivity(in);
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,59 +222,59 @@ future.setOnClickListener(new View.OnClickListener() {
                     mnumber.setText(mnum);
                     new ImageLoaderClass().execute(dp);
 
-try{
-                    if(dp.equals("nul"))
-                    {
+                    try{
+                        if(dp.equals("nul"))
+                        {
 
-                        image.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent gallery=new Intent(Intent.ACTION_GET_CONTENT);
-                                gallery.setType("image/*");
-                                startActivityForResult(gallery,GALLERY_REQUEST);
-                            }
-                        });
-                        set.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                StartSetupAccount();
-                                progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
-                                progressDialog.setMessage("Setting Dp..."); // Setting Message
-                                progressDialog.setTitle(""); // Setting Title
-                                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-                                progressDialog.show(); // Display Progress Dialog
-                                progressDialog.setCancelable(false);
-
-
-                                new Thread(new Runnable() {
-                                    public void run() {
-                                        try {
+                            image.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent gallery=new Intent(Intent.ACTION_GET_CONTENT);
+                                    gallery.setType("image/*");
+                                    startActivityForResult(gallery,GALLERY_REQUEST);
+                                }
+                            });
+                            set.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    StartSetupAccount();
+                                    progressDialog = new ProgressDialog(getActivity(), R.style.AppCompatAlertDialogStyle);
+                                    progressDialog.setMessage("Setting Dp..."); // Setting Message
+                                    progressDialog.setTitle(""); // Setting Title
+                                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+                                    progressDialog.show(); // Display Progress Dialog
+                                    progressDialog.setCancelable(false);
 
 
-                                            Thread.sleep(7000);
-                                            progressDialog.dismiss();
-                                            startActivity(new Intent(getActivity(), Main3Activity.class));
+                                    new Thread(new Runnable() {
+                                        public void run() {
+                                            try {
 
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
+
+                                                Thread.sleep(7000);
+                                                progressDialog.dismiss();
+                                                startActivity(new Intent(getActivity(), Main3Activity.class));
+
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+
                                         }
-
-                                    }
-                                }).start();
+                                    }).start();
 
 
 
-                            }
-                        });
+                                }
+                            });
+                        }
+
+
+
                     }
+                    catch (Exception e){
+                        startActivity(new Intent(getActivity(), MainActivity.class));
 
-
-
-                }
-                catch (Exception e){
-                    startActivity(new Intent(getActivity(), MainActivity.class));
-
-                }
+                    }
                 }
 
 

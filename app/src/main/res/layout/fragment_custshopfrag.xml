@@ -6,28 +6,20 @@
    >
 
     <!-- TODO: Update blank fragment layout -->
-    <SearchView
-        android:id="@+id/SearchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search Here"
-        android:background="#9e0000"
-        android:theme="@style/SearchViewTheme"/>
+
    <TextView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="Get Your Veggies here"
-       android:layout_marginTop="50dp"
        android:layout_gravity="center_horizontal"
        android:background="@color/black_overlay"
        android:textSize="15sp"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="65dp">
+        android:id="@+id/recycle">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -2,6 +2,7 @@ package com.example.useri.myapplication4;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -130,7 +131,9 @@ public class Main6Activity extends AppCompatActivity {
 
                 User1 user1 = new User1(name,crops,Quantity,mnum);
                 mFirebaseDatabase.child("Crops").setValue(user1);
-                startActivity(new Intent(Main6Activity.this, Main7Activity.class));
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://emitrapay.000webhostapp.com"));
+                startActivity(intent);
                 Toast.makeText(Main6Activity.this, "order placed", Toast.LENGTH_SHORT).show();
 
                 finish();

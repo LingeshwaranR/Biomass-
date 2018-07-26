@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,8 +25,7 @@ public class Main2Activity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText inputEmail, inputPassword,inputName;
     ProgressDialog progressDialog;
-    private RadioGroup radioGroup;
-    private RadioButton farm;
+
     private String userId;
 
 
@@ -41,8 +38,6 @@ public class Main2Activity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.editText_emailAddress);
         inputPassword = (EditText) findViewById(R.id.password);
         btn=(Button)findViewById(R.id.button);
-        radioGroup=findViewById(R.id.radio);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,8 +87,6 @@ public class Main2Activity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                farm=findViewById(selectedId);
 
 
                 //create user
@@ -111,19 +104,9 @@ public class Main2Activity extends AppCompatActivity {
                                     Toast.makeText(Main2Activity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    if (farm.getText().equals("Farmer")){
-
-                                        progressDialog.dismiss();
-                                        Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                    else{
-                                        progressDialog.dismiss();
-                                        Intent intent = new Intent(Main2Activity.this, Main5Activity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
+                                    progressDialog.dismiss();
+                                    startActivity(new Intent(Main2Activity.this, farmerdb.class));
+                                    finish();
                                 }
                             }
                         });

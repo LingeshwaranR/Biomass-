@@ -83,7 +83,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="45dp"
-        android:background="@drawable/background_login_four"
+        android:background="@drawable/background_login_two"
         android:clickable="true"
         android:padding="16dp"
         android:text="Post"

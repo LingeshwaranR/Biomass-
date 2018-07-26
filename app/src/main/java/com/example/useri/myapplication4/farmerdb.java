@@ -30,10 +30,10 @@ public class farmerdb extends AppCompatActivity {
     private String userId;
     ProgressDialog progressDialog;
     private Button btn;
-    private EditText inputName,inputMnum;
+    private EditText inputName,inputMnum,inputAnum;
     Spinner spinner1,spinner;
     String[] SPINNERVALUES = {"Tomato","Potato","Onion","carrot","Beans","Spinach"};
-    String[] SPINNER1VALUES = {"Madurai","Chennai","Coimbatore","Salem","Trichi","Tirunelveli"};
+    String[] SPINNER1VALUES = {"Madurai","Chennai","Udaipur","Bikaner","jaipur","Jhodpur"};
 
 
 
@@ -46,6 +46,7 @@ public class farmerdb extends AppCompatActivity {
 
         inputName = (EditText) findViewById(R.id.editText_name);
         inputMnum=(EditText)findViewById(R.id.mnum);
+        inputAnum=findViewById(R.id.anum);
         btn=(Button)findViewById(R.id.button);
         spinner =(Spinner) findViewById(R.id.spinner1);
         spinner1=(Spinner)findViewById(R.id.spinner2);
@@ -97,69 +98,84 @@ public class farmerdb extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
 
-         @Override
-         public void onClick(View view) {
-             mFirebaseInstance =FirebaseDatabase.getInstance();
-             mFirebaseDatabase = mFirebaseInstance.getReference("Farmers");
+            @Override
+            public void onClick(View view) {
+                mFirebaseInstance =FirebaseDatabase.getInstance();
+                mFirebaseDatabase = mFirebaseInstance.getReference("Farmers");
 
 
 
-             String name = inputName.getText().toString();
-             String location= spinner1.getSelectedItem().toString();
-             String crops= spinner.getSelectedItem().toString();
-             String mnum=inputMnum.getText().toString();
-             String dp ="nul";
+                String name = inputName.getText().toString();
+                String location= spinner1.getSelectedItem().toString();
+                String crops= spinner.getSelectedItem().toString();
+                String mnum=inputMnum.getText().toString();
+                String anum=inputAnum.getText().toString();
+                String dp ="nul";
 
-             progressDialog = new ProgressDialog( farmerdb.this,R.style.AppCompatAlertDialogStyle);
-             progressDialog.setMessage("Submitting Details..."); // Setting Message
-             progressDialog.setTitle(""); // Setting Title
-             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-             progressDialog.show(); // Display Progress Dialog
-             progressDialog.setCancelable(false);
-             new Thread(new Runnable() {
-                 public void run() {
-                     try {
-                         Thread.sleep(10000);
-                     } catch (Exception e) {
-                         e.printStackTrace();
-                     }
+                progressDialog = new ProgressDialog( farmerdb.this,R.style.AppCompatAlertDialogStyle);
+                progressDialog.setMessage("Submitting Details..."); // Setting Message
+                progressDialog.setTitle(""); // Setting Title
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+                progressDialog.show(); // Display Progress Dialog
+                progressDialog.setCancelable(false);
+                new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            Thread.sleep(10000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
-                 }
-             }).start();
+                    }
+                }).start();
 
-             if (TextUtils.isEmpty(name)) {
-                 Toast.makeText(getApplicationContext(), "Enter name!", Toast.LENGTH_SHORT).show();
-                 progressDialog.dismiss();
-                 return;
-             }
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(getApplicationContext(), "Enter name!", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    return;
+                }
 
-             if (TextUtils.isEmpty(location)) {
-                 progressDialog.dismiss();
-                 Toast.makeText(getApplicationContext(), "Enter location!", Toast.LENGTH_SHORT).show();
-                 return;
-             }
+                if (TextUtils.isEmpty(location)) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter location!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-             if (TextUtils.isEmpty(crops)) {
-                 progressDialog.dismiss();
-                 Toast.makeText(getApplicationContext(), "Enter crops!", Toast.LENGTH_SHORT).show();
-                 return;
-             }
+                if (TextUtils.isEmpty(crops)) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter crops!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-             if (TextUtils.isEmpty(mnum)) {
-                 progressDialog.dismiss();
-                 Toast.makeText(getApplicationContext(), "Enter Mobile Number!", Toast.LENGTH_SHORT).show();
-                 return;
-             }
-             userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                if (TextUtils.isEmpty(mnum)) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter Mobile Number!", Toast.LENGTH_SHORT).show();
+                    return;
 
-         User user = new User(name,location,crops,mnum,dp);
+                }
+                if (TextUtils.isEmpty(anum)) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter Mobile Number!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!anum.equals("1234123412341234")) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Enter valid Aadhaar Number", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(farmerdb.this, BlockLogin.class));
+
+
+                    return;
+                }
+                userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                User user = new User(name,location,crops,mnum,dp);
                 mFirebaseDatabase.child(userId).setValue(user);
 
-             progressDialog.dismiss();
-             startActivity(new Intent(farmerdb.this, Main3Activity.class));
+                progressDialog.dismiss();
+                startActivity(new Intent(farmerdb.this, Main3Activity.class));
 
-         }
-     });
+            }
+        });
 
     }
 }

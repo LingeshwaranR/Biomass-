@@ -3,6 +3,7 @@ package com.example.useri.myapplication4;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
@@ -18,6 +19,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
 
     private Context context;
+
 
 
     // Constructor
@@ -56,6 +58,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         this.update("Fingerprint Authentication succeeded.", true);
+
     }
 
 
@@ -64,6 +67,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
         textView1.setText(e);
         if(success){
             textView1.setTextColor(ContextCompat.getColor(context,R.color.colorPrimaryDark));
+            Intent i = new Intent(context, Main3Activity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
         }
     }
 }

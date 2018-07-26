@@ -5,19 +5,9 @@
     tools:context="com.example.useri.myapplication4.marketplaceFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <SearchView
-        android:id="@+id/SearchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search Here"
-        android:background="#1c4a35"
-        android:theme="@style/SearchViewTheme"/>
    <android.support.v7.widget.RecyclerView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_marginTop="50dp"
        android:id="@+id/recycle">
 
    </android.support.v7.widget.RecyclerView>

@@ -19,7 +19,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -48,12 +47,8 @@ public class generalBlankFragment extends Fragment {
     private EditText name;
     private EditText price;
     private Button submit;
-    private FirebaseAuth auth;
     private Uri image1=null;
     private StorageReference storage;
-    String userid=auth.getCurrentUser().getUid();
-
-
 
     private DatabaseReference database;
 
@@ -119,7 +114,6 @@ public class generalBlankFragment extends Fragment {
 
 
 
-
           storage= FirebaseStorage.getInstance().getReference();
           database= FirebaseDatabase.getInstance().getReference().child("Posts");
 
@@ -129,7 +123,6 @@ public class generalBlankFragment extends Fragment {
                  Intent gallery=new Intent(Intent.ACTION_GET_CONTENT);
                  gallery.setType("image/*");
                  startActivityForResult(gallery,GALLERY_REQUEST);
-
              }
          });
          submit.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +141,7 @@ return view;
 
           String item=name.getText().toString().trim();
           String cost=price.getText().toString().trim();
+
          if(!TextUtils.isEmpty(item) && !TextUtils.isEmpty(cost) && image1!=null){
              StorageReference filepath = storage.child("Posts").child(image1.getLastPathSegment());
              filepath.putFile(image1).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -158,7 +152,6 @@ return view;
                      post.child("item").setValue(item);
                      post.child("price").setValue(price);
                      post.child("image").setValue(downloadurl.toString());
-                     post.child("fid").setValue(userid);
                  }
 
              });
@@ -189,7 +182,7 @@ return view;
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            Toast.makeText(context,userid,Toast.LENGTH_LONG).show();
+            Toast.makeText(context,"Home",Toast.LENGTH_LONG).show();
         }
     }
 

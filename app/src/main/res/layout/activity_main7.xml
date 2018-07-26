@@ -5,35 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.useri.myapplication4.Main7Activity"
-    android:background="@drawable/moon"
+    android:background="#fff"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="165dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/farm1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FARM2HOME"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/white"
-        android:fontFamily="comic-sans"
-        android:layout_gravity="center_horizontal"
-        android:textSize="40sp"/>
-
-
-    <TextView
-        android:layout_width="303dp"
-        android:layout_height="41dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="PAYMENT METHOD"
-        android:textColor="#fff"
-        android:textSize="20sp" />
+        android:text="PAY USING"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_gravity="center_horizontal"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:id="@+id/paytm"
+        android:src="@drawable/paytm_logo"
         android:layout_marginTop="40dp"
-        android:src="@drawable/paytm_logo" />
+        />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -47,11 +41,12 @@
         android:layout_marginTop="40dp"
         android:src="@drawable/credit" />
 
-    <ImageView
-        android:layout_width="176dp"
-        android:layout_height="74dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/cashondelivery" />
-
+        android:layout_marginTop="100dp"
+        android:text="Thank you visit again"
+        android:textColor="#000"
+        android:textSize="15sp" />
 </LinearLayout>

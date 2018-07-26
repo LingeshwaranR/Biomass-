@@ -21,7 +21,7 @@ public class Main3Activity extends AppCompatActivity {
             android.support.v4.app.FragmentTransaction transaction = fragmetManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    transaction.replace(R.id.content,new marketplaceFragment()).commit();
+                    transaction.replace(R.id.content,new homefragment()).commit();
                     return true;
 
                 case R.id.profile:
@@ -29,7 +29,7 @@ public class Main3Activity extends AppCompatActivity {
                     return true;
                 case R.id.marketplace:
 
-                    transaction.replace(R.id.content,new homefragment()).commit();
+                    transaction.replace(R.id.content,new marketplaceFragment()).commit();
                     return true;
             }
             return false;
@@ -44,7 +44,7 @@ public class Main3Activity extends AppCompatActivity {
 
         android.support.v4.app.FragmentManager fragmetManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmetManager.beginTransaction();
-        transaction.replace(R.id.content,new marketplaceFragment()).commit();
+        transaction.replace(R.id.content,new homefragment()).commit();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

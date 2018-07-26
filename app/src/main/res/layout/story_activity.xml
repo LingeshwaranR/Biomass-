@@ -7,13 +7,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/storyimg"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:contentDescription="@string/about_git_hub"
             android:src="@drawable/post_out" />
         <LinearLayout
@@ -22,9 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Item :"
-                android:textColor="@color/black"
-                />
+                android:text="Item :"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -32,8 +29,6 @@
                 android:id="@+id/storyitem"
                 android:textSize="15sp"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/black_overlay"
-
                 android:text="@string/your_item_will_be_displayed_here"/>
         </LinearLayout>
 
@@ -43,8 +38,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-
                 android:text="Price :"/>
 
 
@@ -53,7 +46,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/black_overlay"
 
                 android:text="@string/price"
                 android:textSize="15sp" />
@@ -61,7 +53,13 @@
         </LinearLayout>
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/ic_shopping_cart_black_24dp"
 
+            android:text="  ADD TO CART"/>
 
 
     </LinearLayout>

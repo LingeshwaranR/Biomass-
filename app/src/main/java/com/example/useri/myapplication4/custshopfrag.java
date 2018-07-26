@@ -2,8 +2,6 @@ package com.example.useri.myapplication4;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,11 +13,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +45,6 @@ public class custshopfrag extends Fragment {
     private OnFragmentInteractionListener mListener;
     private RecyclerView story;
     private DatabaseReference database;
-    Spinner spinner;
-    String[] SPINNERVALUES = {"1","2","3","4","5","6","7","8","9","10"};
 
     public custshopfrag() {
         // Required empty public constructor
@@ -93,8 +86,6 @@ public class custshopfrag extends Fragment {
         story=(RecyclerView)view.findViewById(R.id.recycle);
         story.setHasFixedSize(true);
         story.setLayoutManager(new LinearLayoutManager(getActivity().getApplication()));
-        spinner =(Spinner)view.findViewById(R.id.quantity);
-
 
 
         return view;
@@ -107,7 +98,7 @@ public class custshopfrag extends Fragment {
         FirebaseRecyclerAdapter<blog,BlogViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<blog, BlogViewHolder>(
 
                 blog.class,
-                R.layout.cstory,
+                R.layout.story_activity,
                 BlogViewHolder.class,
                 database
         ) {
@@ -117,7 +108,7 @@ public class custshopfrag extends Fragment {
                 viewHolder.setItem(model.getItem());
                 viewHolder.setprice(model.getPrice());
                 viewHolder.setImage(getContext(),model.getImage());
-                        }
+            }
         };
         story.setAdapter(firebaseRecyclerAdapter);
     }
@@ -136,32 +127,6 @@ public class custshopfrag extends Fragment {
                     context.startActivity(intent);
             }
             });
-            Spinner spinner=(Spinner)nView.findViewById(R.id.quantity);
-            String[] SPINNERVALUES = {"1kg","2kg","3kg","4kg","5kg","6kg","7kg","8kg","9kg","10kg"};
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(nView.getContext(), android.R.layout.simple_list_item_checked, SPINNERVALUES);
-            spinner.setAdapter(adapter);
-
-            //Adding setOnItemSelectedListener method on spinner.
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view,
-                                           int position, long id) {
-                    spinner.getPopupBackground().setColorFilter(Color.parseColor("#80FFFFFF"), PorterDuff.Mode.SRC_ATOP);
-
-
-
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    // TODO Auto-generated method stub
-
-                }
-            });
-
 
         }
         public void setItem(String item){

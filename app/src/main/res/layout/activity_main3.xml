@@ -6,14 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f7f7f7"
+    android:background="#fff"
     tools:context="com.example.useri.myapplication4.Main3Activity">
 
+    <SearchView
+        android:id="@+id/SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here"
+        android:background="#1c4a35"
+        android:theme="@style/SearchViewTheme"/>
 
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="585dp">
+        android:layout_height="625dp">
 
 
     </FrameLayout>
@@ -21,12 +29,12 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:background="?android:attr/windowBackground"
-        android:backgroundTint="#f7f7f7"
+        android:backgroundTint="#fff"
         app:itemIconTint="@drawable/botton_nav_colors"
         app:itemTextColor="@drawable/botton_nav_colors"
         app:layout_constraintBottom_toBottomOf="parent"

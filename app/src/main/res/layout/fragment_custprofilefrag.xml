@@ -2,132 +2,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.useri.myapplication4.customerprofFragment">
+    tools:context="com.example.useri.myapplication4.custprofilefrag">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:orientation="vertical"
-            android:background=" #9e0000">
-
-            <ImageButton
-                android:id="@+id/img"
-                android:layout_width="166dp"
-                android:layout_height="166dp"
-                android:layout_gravity="center"
-                android:background="@drawable/staff_rounded_profile_blank_male"
-                android:contentDescription="@string/dialog_ok"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/nm"
-                android:layout_marginTop="10dp"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center"
-                android:textSize="20dp"
-                />
-            <Button
-                android:id="@+id/set1"
-                android:layout_width="170dp"
-                android:layout_height="37dp"
-                android:layout_gravity="center"
-                android:text="CHANGE PICTURE" />
-
-        </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Profile"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/b"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"/>
 
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact:"
-                android:textColor="#000"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/num"
-                android:textColor="#000"
-                android:layout_marginLeft="10dp"
-                android:textSize="20dp"
-                />
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Item:"
-                android:textColor="#000"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/item"
-                android:textColor="#000"
-                android:layout_marginLeft="20dp"
-                android:textSize="20dp"
-                />
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location:"
-                android:textColor="#000"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/loc"
-                android:textColor="#000"
-                android:layout_marginLeft="20dp"
-                android:textSize="20dp"
-                />
-
-
-
-        </LinearLayout>
-
-
-        <Button
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:text="Logout"
-            android:autofillHints="@color/black"
-            android:background="@drawable/background_login_three"
-            android:id="@+id/check"/>
-
-    </LinearLayout>
+</LinearLayout>
 
 
 </FrameLayout>
